@@ -27,7 +27,7 @@
             {
               // TODO: configure the location of the bootstrap server
               BootstrapServers = "kafka:9092",
-              PluginLibraryPaths = "monitoring-interceptor",
+              ////PluginLibraryPaths = "monitoring-interceptor",
               Partitioner = Partitioner.Murmur2Random,
             };
 

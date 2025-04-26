@@ -29,7 +29,7 @@ namespace DotnetProducerAvro
             var producerConfig = new ProducerConfig
             {
               BootstrapServers = "kafka:9092",
-              PluginLibraryPaths = "monitoring-interceptor",
+              //PluginLibraryPaths = "monitoring-interceptor",
               Partitioner = Partitioner.Murmur2Random,
             };
             // Configure schema registry location

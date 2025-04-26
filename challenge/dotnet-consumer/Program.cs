@@ -26,7 +26,7 @@
                 BootstrapServers = "kafka:9092",
                 GroupId = "csharp-consumer",
                 AutoOffsetReset = AutoOffsetReset.Earliest,
-                //PluginLibraryPaths = "monitoring-interceptor",
+                ///PluginLibraryPaths = "monitoring-interceptor",
             };
 
             using (var consumer = new ConsumerBuilder<string, string>(consumerConfig).Build())

@@ -86,7 +86,7 @@ public class StreamsApp {
     // TO-DO: Use filter() method to filter out the events from `driver-2`.
     //        Define the predicate in the lambda expression of the filter().
     final KStream<String, PositionValue> positionsFiltered = positions.filter(
-            (key,value) -> !key.equals("driver-2"));
+            (key,value) -> key.equals("driver-2"));
 
     // TO-DO: Use mapValues() method to change the value of each
     //        event from PositionValue to PositionString class.

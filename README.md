@@ -231,24 +231,6 @@ curl -X POST http://localhost:8083/connectors   -H "Content-Type: application/js
 
 ---
 
-## 🐳 Push Docker Image ke Docker Hub
-**Langkah-langkah:**
-```bash
-docker login
-
-docker tag cnfltraining/node-webserver-avro:2.0 itasoftdidit/node-webserver-avro:2.0
-docker push itasoftdidit/node-webserver-avro:2.0
-# ulangi untuk semua image lainnya
-```
-
-**Skrip otomatis:**
-```bash
-chmod +x push-all.sh
-./push-all.sh
-```
-
----
-
 ## 📁 Struktur Folder
 ```
 confluent-dev/

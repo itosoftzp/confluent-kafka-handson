@@ -20,7 +20,6 @@ services:
     environment:
       KAFKA_BROKER_ID: 101
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_METRIC_REPORTERS: "io.confluent.metrics.reporter.ConfluentMetricsReporter"
@@ -34,7 +33,7 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:7.0.0
+    image: confluentinc/cp-schema-registry:7.0.0-1
     restart: always
     container_name: schema-registry
     ports:
@@ -181,7 +180,7 @@ services:
                       npm run start'"
 
   webserver-avro:
-    image: cnfltraining/node-webserver-avro:2.0
+    image: cnfltraining/node-webserver-avro:1.0
     container_name: webserver-avro
     hostname: webserver-avro
     ports:
@@ -209,7 +208,7 @@ services:
                       npm run start'"
 
   webserver-ksql:
-    image: cnfltraining/node-webserver-avro:2.0
+    image: cnfltraining/node-webserver-avro:1.0
     container_name: webserver-ksql
     hostname: webserver-ksql
     ports:

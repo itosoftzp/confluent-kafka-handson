@@ -2,7 +2,7 @@
 version: '2'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.0.0
+    image: itasoftdidit/cp-zookeeper:7.0.0
     restart: always
     container_name: zookeeper
     ports:
@@ -12,7 +12,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   kafka:
-    image: confluentinc/cp-enterprise-kafka:7.0.0
+    image: itasoftdidit/cp-enterprise-kafka:7.0.0
     restart: always
     container_name: kafka
     ports:
@@ -34,7 +34,7 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:7.0.0
+    image: itasoftdidit/cp-schema-registry:7.0.0
     restart: always
     container_name: schema-registry
     ports:
@@ -45,7 +45,7 @@ services:
       KAFKA_REST_CUB_KAFKA_TIMEOUT: 180 # https://github.com/confluentinc/cp-docker-images/issues/807
 
   ksqldb-server:
-    image: confluentinc/cp-ksqldb-server:7.0.0
+    image: itasoftdidit/cp-ksqldb-server:7.0.0
     restart: always
     container_name: ksqldb-server
     ports:
@@ -66,7 +66,7 @@ services:
       KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
 
   connect:
-    image: confluentinc/cp-kafka-connect:7.0.0
+    image: itasoftdidit/cp-kafka-connect:7.0.0
     restart: always
     container_name: connect
     ports:
@@ -93,7 +93,7 @@ services:
       CONNECT_CONSUMER_INTERCEPTOR_CLASSES: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
 
   control-center:
-    image: confluentinc/cp-enterprise-control-center:7.0.0
+    image: itasoftdidit/cp-enterprise-control-center:7.0.0
     restart: always
     container_name: control-center
     ports:
@@ -114,7 +114,7 @@ services:
       CONTROL_CENTER_UI_AUTOUPDATE_ENABLE: "false"
 
   producer1:
-    image: cnfltraining/java-producer-avro:1.0
+    image: itasoftdidit/java-producer-avro:1.0
     container_name: producer1
     environment:
       DRIVER_ID: driver-1
@@ -125,7 +125,7 @@ services:
                       java -classpath \"lib/*\" clients.Producer'"
 
   producer2:
-    image: cnfltraining/java-producer-avro:1.0
+    image: itasoftdidit/java-producer-avro:1.0
     container_name: producer2
     environment:
       DRIVER_ID: driver-2
@@ -136,7 +136,7 @@ services:
                       java -classpath \"lib/*\" clients.Producer'"
 
   producer3:
-    image: cnfltraining/java-producer-avro:1.0
+    image: itasoftdidit/java-producer-avro:1.0
     container_name: producer3
     environment:
       DRIVER_ID: driver-3
@@ -147,7 +147,7 @@ services:
                       java -classpath \"lib/*\" clients.Producer'"
 
   producer4:
-    image: cnfltraining/java-producer-avro:1.0
+    image: itasoftdidit/java-producer-avro:1.0
     container_name: producer4
     environment:
       DRIVER_ID: driver-4
@@ -158,7 +158,7 @@ services:
                       java -classpath \"lib/*\" clients.Producer'"
 
   producer5:
-    image: cnfltraining/java-producer-avro:1.0
+    image: itasoftdidit/java-producer-avro:1.0
     container_name: producer5
     environment:
       DRIVER_ID: driver-5
@@ -169,7 +169,7 @@ services:
                       java -classpath \"lib/*\" clients.Producer'"
 
   webserver:
-    image: cnfltraining/node-webserver:1.0
+    image: itasoftdidit/node-webserver:1.0
     container_name: webserver
     hostname: webserver
     ports:
@@ -181,7 +181,7 @@ services:
                       npm run start'"
 
   webserver-avro:
-    image: cnfltraining/node-webserver-avro:2.0
+    image: itasoftdidit/node-webserver-avro:2.0
     container_name: webserver-avro
     hostname: webserver-avro
     ports:
@@ -195,7 +195,7 @@ services:
                       npm run start'"
 
   webserver-streams:
-    image: cnfltraining/node-webserver-avro:2.0
+    image: itasoftdidit/node-webserver-avro:2.0
     container_name: webserver-streams
     hostname: webserver-streams
     ports:
@@ -209,7 +209,7 @@ services:
                       npm run start'"
 
   webserver-ksql:
-    image: cnfltraining/node-webserver-avro:2.0
+    image: itasoftdidit/node-webserver-avro:2.0
     container_name: webserver-ksql
     hostname: webserver-ksql
     ports:
@@ -223,7 +223,7 @@ services:
                       npm run start'"
 
   postgres:
-    image: postgres:11.2-alpine
+    image: itasoftdidit/postgres:11.2-alpine
     restart: always
     container_name: postgres
     volumes:
@@ -232,7 +232,7 @@ services:
       - 5432:5432
 
   create-topics:
-    image: confluentinc/cp-enterprise-kafka:7.0.0-1-ubi8
+    image: itasoftdidit/cp-enterprise-kafka:7.0.0
     container_name: create-topics
     command: >
       bash -c 'echo Waiting for Kafka to be ready... ;
@@ -250,7 +250,7 @@ services:
       true'
       
   tools:
-    image: cnfltraining/training-tools:7.5
+    image: itasoftdidit/kafka-tools:1.0.0
     restart: always
     hostname: tools
     container_name: tools
